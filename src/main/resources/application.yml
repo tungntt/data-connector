@@ -1,1 +1,22 @@
-
+spring:
+  application:
+    name: wynnesystems-dc
+  profiles:
+    active: dev
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  task:
+    execution:
+      thread-name-prefix: dc-task-
+      pool:
+        core-size: 2
+        max-size: 50
+        queue-capacity: 10000
