@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://${HOST:localhost}:${PORT:3306}/${SCHEMA_NAME:dc-management-poc}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWD:abc123}
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+  h2:
+    console:
+      enabled: false
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+
+app:
+  security:
+    jwt:
+      # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+      base64-secret: YzhiYWI4OTE3MmQ0NDhjZDJjNGYxZTJiYTBmZmU0YTkyY2IzNjliMjcyNTE2ZDRhNGFjYjQxODU3M2U0MTlhMzI2NzVhNjIzMjM2Njc5ZGViMzk3MWI1YWIwZTc0MGUxMzI3OGU2YjFlMDdlM2FmZTg0MjVhMmM3N2Q3ODhiMWY=
+      # Token is valid 24 hours
+      token-validity-in-seconds: 86400
