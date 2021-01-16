@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class ConnectorEntity implements Serializable {
 
     public enum DbType {
-        DB2("com.ibm.db2.jcc.DB2Driver", "org.hibernate.dialect.MySQLDialect"),
+        DB2("com.ibm.db2.jcc.DB2Driver", "org.hibernate.dialect.DB2Dialect"),
         MYSQL("com.mysql.jdbc.Driver", "org.hibernate.dialect.MySQLDialect");
 
         private String driverClassName;
